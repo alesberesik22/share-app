@@ -16,9 +16,82 @@
     }
   }
   .login_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     color: red;
     position: absolute;
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    .login_button_header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      .logo {
+        width: 110px;
+        height: 110px;
+        object-fit: contain;
+      }
+      .wrapper {
+        display: grid;
+        place-content: center;
+        font-family: "Oswald", sans-serif;
+        font-size: clamp(1.5rem, 1rem + 2.2vw, 15rem);
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-color);
+      }
+
+      .wrapper > div {
+        grid-area: 1/1/-1/-1;
+      }
+      .top {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+      }
+      .bottom {
+        clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+        color: transparent;
+        background: -webkit-linear-gradient(
+          177deg,
+          black 53%,
+          var(--text-color) 65%
+        );
+        background: linear-gradient(177deg, var(--text-color) 53%, black 65%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        transform: translateX(-0.02em);
+      }
+    }
+    .login_button_element {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 5px;
+      padding: 0.5rem 2.5rem;
+      background-color: transparent;
+      outline: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--primary-transition);
+      font-size: 20px;
+      letter-spacing: 0.03em;
+      font-weight: 600;
+      color: var(--forthColor);
+      border-radius: 7px;
+      .google_icon {
+        color: white;
+      }
+      &:hover {
+        .google_icon {
+          color: white;
+        }
+        background-color: var(--mainColor);
+        color: var(--thirdColor);
+      }
+    }
   }
 }

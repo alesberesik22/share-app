@@ -1,0 +1,16 @@
+.pins {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  .pins_navbar {
+    width: 100%;
+    background-color: var(--secondaryColor);
+  }
+  .routes {
+    width: 100%;
+  }
+}

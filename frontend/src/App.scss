@@ -1,10 +1,9 @@
-.home {
+.layout {
+  width: 100vw;
+  height: 100vh;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: row;
-  background-color: var(--forthColor);
-  width: 80%;
-  height: 100vh;
-  position: relative;
+  box-sizing: border-box;
 }

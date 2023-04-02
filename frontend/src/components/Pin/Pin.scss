@@ -1,0 +1,136 @@
+.pin {
+  width: 100%;
+  position: relative;
+  border-radius: 7px;
+  transition: var(--primary-transition);
+  z-index: 0;
+  cursor: pointer;
+  &:hover {
+    .layout {
+      transition: var(--primary-transition);
+      display: flex;
+    }
+    .pin_img {
+      filter: brightness(50%);
+    }
+  }
+  .pin_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    transition: var(--primary-transition);
+  }
+  .pin_author {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    cursor: pointer;
+    transition: var(--primary-transition);
+    &:hover {
+      scale: 1.05;
+    }
+    .pin_author_image {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+    .pin_author_name {
+      font-weight: 600;
+      color: var(--mainColor);
+    }
+  }
+  .layout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    display: none;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    transition: var(--primary-transition);
+    z-index: 1;
+    .layout_top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      padding: 0.5rem;
+      transition: var(--primary-transition);
+      .save_button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: var(--secondaryColor);
+        transition: var(--primary-transition);
+        svg {
+          width: 70%;
+          height: 70%;
+          color: white;
+          cursor: pointer;
+        }
+        &:hover {
+          scale: 1.05;
+        }
+      }
+      .number_of_saves {
+        background-color: rgba(255, 0, 0, 0.671);
+        padding: 0.1rem 0.9rem;
+        border-radius: 15px;
+        color: white;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        button {
+          background-color: transparent;
+          outline: none;
+          border: 1px solid transparent;
+          cursor: pointer;
+        }
+      }
+    }
+    .bottom_layout {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      .layout_bottom {
+        margin: 0 0 1rem 1rem;
+        padding: 0.2rem 0.5rem;
+        border-radius: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 160px;
+        white-space: nowrap;
+        background-color: var(--secondaryColor);
+        cursor: pointer;
+        transition: var(--primary-transition);
+        box-shadow: var(--primary-shadow);
+        text-decoration: none;
+        color: white;
+        &:hover {
+          scale: 1.03;
+        }
+      }
+      .delete_icon {
+        cursor: pointer;
+        color: var(--secondaryColor);
+        margin: 0 0.5rem 1rem 0;
+        transition: var(--primary-transition);
+        &:hover {
+          scale: 1.1;
+          color: red;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.header {
+  width: 79.89%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: var(--primary-shadow);
+  font-weight: 700;
+  color: var(--thirdColor);
+  letter-spacing: 0.03em;
+  border-radius: 0 0 10px 10px;
+  font-size: 25px;
+  gap: 0.5rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  .header_logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+}
+.scrolled {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 1000px) {
+  .header {
+    width: 100%;
+    .header_logo {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
+  }
+}

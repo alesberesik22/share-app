@@ -8,6 +8,12 @@
   color: #242424;
   background-color: rgba(255, 255, 255, 0.87);
   --primary-transition: all 250ms ease-in-out;
+  --text-color: hsl(0, 0%, 100%);
+  --mainColor: #354649;
+  --secondaryColor: #6c7a89;
+  --thirdColor: #a3c6c4;
+  --forthColor: #e0e7e9;
+  --primary-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,8 +26,6 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 * {
   margin: 0;

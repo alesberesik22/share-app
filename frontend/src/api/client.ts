@@ -143,7 +143,7 @@ export const pinDetailQuery = (pinId: string) => {
     title, 
     about,
     category,
-    destination,
+    url,
     postedBy->{
       _id,
       userName,
@@ -177,7 +177,7 @@ export const pinDetailMorePinQuery = (pin: any) => {
       }
     },
     _id,
-    destination,
+    url,
     postedBy->{
       _id,
       userName,
@@ -208,7 +208,7 @@ export const userCreatedPinsQuery = (userId: string) => {
       }
     },
     _id,
-    destination,
+    url,
     postedBy->{
       _id,
       userName,
@@ -233,7 +233,7 @@ export const userSavedPinsQuery = (userId: string) => {
       }
     },
     _id,
-    destination,
+    url,
     postedBy->{
       _id,
       userName,

@@ -108,7 +108,7 @@ const Pin: React.FC<Props> = ({ pin }) => {
         className="pin_author"
         onClick={(e) => {
           e.stopPropagation();
-          navigate(`user-profile/${pin.postedBy._id}`);
+          navigate(`/user-profile/${pin.postedBy._id}`);
         }}
       >
         <img

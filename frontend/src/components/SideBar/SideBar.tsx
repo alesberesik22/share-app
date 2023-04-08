@@ -7,15 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeNavbar } from "../../redux/navbarSlice";
 import { RootState } from "../../redux/store";
 import HomeIcon from "@mui/icons-material/Home";
-
-const categories = [
-  { name: "Animals" },
-  { name: "Wallpapers" },
-  { name: "Photography" },
-  { name: "Gaming" },
-  { name: "Coding" },
-  { name: "Others" },
-];
+import { categories } from "../../api/client";
 
 const SideBar = () => {
   const auth = useAuth();
@@ -67,6 +59,7 @@ const SideBar = () => {
                 key={category.name}
                 onClick={() => handleCategoryClick(category.name)}
               >
+                <img src={category.image} alt={category.name} />
                 {category.name}
               </div>
             ))}

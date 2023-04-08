@@ -16,3 +16,19 @@ export interface PostedBy {
   image: string;
   userName: string;
 }
+
+export interface IPinDetail {
+  _id: string;
+  about: string;
+  category: string;
+  comments: any;
+  url: any;
+  image: Image;
+  postedBy: PostedBy;
+  save: Save[];
+  title: string;
+}
+
+export interface Save {
+  postedBy: PostedBy;
+}

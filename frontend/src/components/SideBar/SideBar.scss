@@ -97,6 +97,11 @@
           &:hover {
             color: white;
           }
+          img {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+          }
         }
         .sideBar_options_element {
           width: 100%;
@@ -135,6 +140,11 @@
           .categories {
             .category_element {
               padding: 0.5rem;
+              img {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+              }
             }
           }
           p {

@@ -60,6 +60,39 @@ const CreatePin = () => {
     setCategory(event.target.value as string);
   };
 
+  const handleCancel = () => {
+    setTitle("");
+    setAbout("");
+    setCategory("");
+    setImageAsset(null);
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const doc = {
+      _type: "pin",
+      title,
+      about,
+      url: destination,
+      image: {
+        _type: "image",
+        asset: {
+          _type: "reference",
+          _ref: imageAsset?._id,
+        },
+      },
+      userID: user.id,
+      postedBy: {
+        _type: "postedBy",
+        _ref: user.id,
+      },
+      category,
+    };
+    client.create(doc).then(() => {
+      navigate("/home");
+    });
+  };
+
   return (
     <div className="create_pin">
       {fields && <p>Please fill in all the fields</p>}
@@ -77,6 +110,7 @@ const CreatePin = () => {
                 name="share_img"
                 hidden
                 onClick={uploadImage}
+                required
               />
             </>
           ) : (
@@ -94,7 +128,7 @@ const CreatePin = () => {
           )}
         </div>
         <div className="create_pin_container_image_description">
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
               value={title}
@@ -121,21 +155,102 @@ const CreatePin = () => {
               onChange={(e) => setDestination(e.target.value)}
             />
             <div className="create_pin_category">
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Age</InputLabel>
+              <FormControl
+                sx={{
+                  width: "40%",
+                  "&:hover": {
+                    scale: "1.05",
+                    "& .MuiFormLabel-root": {
+                      color: "var(--thirdColor)",
+                    },
+                  },
+                  "& .Mui-focused": {
+                    color: "var(--thirdColor)",
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "var(--thirdColor)",
+                    },
+                  },
+                }}
+              >
+                <InputLabel id="demo-simple-select-label">Category</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
-                  value={category}
+                  value={category === undefined ? "" : category}
                   label="Categories"
                   onChange={handleChange}
+                  required
+                  sx={{
+                    "&:focus": {
+                      backgroundColor: "#ffddec",
+                      borderColor: "brown",
+                    },
+                    "& .MuiOutlinedInput-root": {
+                      border: "1px solid transparent",
+                      transition: "all 250ms ease-in-out",
+                      "&:focus-within": {
+                        borderColor: "yellow",
+                      },
+                    },
+                    "&	.MuiSelect-select": {
+                      borderRadius: 10,
+                    },
+                    "&:hover": {
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "var(--thirdColor)",
+                        boxShadow: "var(--primary-shadow)",
+                      },
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      borderColor: "var(--secondaryColor)",
+                      transition: "all 250ms ease-in-out",
+                      borderRadius: "10px",
+                      boxShadow: "0",
+                    },
+                    "& 	.MuiSelect-select": {
+                      outline: "none",
+                    },
+                    outline: "0",
+                    border: "1px solid transparent",
+                    transition: "all 250ms ease-in-out",
+
+                    "& .MuiSelect-select": {
+                      color: "black",
+                      transition: "all 250ms ease-in-out",
+                      "&:hover": {
+                        color: "var(--secondaryColor)",
+                      },
+                    },
+                    "& .MuiSelect-root.Mui-focused": {
+                      borderColor: "green",
+                    },
+                  }}
                 >
-                  <MenuItem value={undefined}></MenuItem>
+                  <MenuItem value={""}></MenuItem>
                   {categories.map((category) => (
-                    <MenuItem value={category.name}>{category.name}</MenuItem>
+                    <MenuItem
+                      value={category.name}
+                      sx={{
+                        "&:hover": {
+                          backgroundColor: "var(--mainColor)",
+                          color: "white",
+                        },
+                        "&.Mui-selected": {
+                          backgroundColor: "var(--thirdColor)",
+                        },
+                      }}
+                    >
+                      {category.name}
+                    </MenuItem>
                   ))}
                 </Select>
               </FormControl>
+            </div>
+            <div className="buttons">
+              <button type="submit">Save</button>
+              <button type="button" onClick={handleCancel}>
+                Cancel
+              </button>
             </div>
           </form>
         </div>

@@ -62,49 +62,16 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+        path: "/user-profile/:userId",
+        element: (
+          <ProtectedRoute>
+            <UserProfile />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
-  // { path: "/", element: <Login /> },
-  // {
-  //   path: "/home",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <Home />
-  //     </ProtectedRoute>
-  //   ),
-  // },
-  // {
-  //   path: "/user-profile/:userID",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <UserProfile />
-  //     </ProtectedRoute>
-  //   ),
-  // },
-  // {
-  //   path: "/category/:categoryID",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <Feed />
-  //     </ProtectedRoute>
-  //   ),
-  // },
-  // {
-  //   path: "/pin-detail/:pinID",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <PinDetail />
-  //     </ProtectedRoute>
-  //   ),
-  // },
-  // {
-  //   path: "/search",
-  //   element: (
-  //     <ProtectedRoute>
-  //       <Search />
-  //     </ProtectedRoute>
-  //   ),
-  // },
 ]);
 
 function App() {
